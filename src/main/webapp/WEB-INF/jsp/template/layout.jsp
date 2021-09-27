@@ -19,11 +19,17 @@
 </head>
 <body>
 	<div class="container">
-		<header></header>
+		<header class="bg-info">
+			<jsp:include page="../include/gnb.jsp" />  <!-- "../include" 는 상대경로 "/../include" 는 절대경로 앞에 /가 있으면 절대경로  -->
+		</header>
 		
-		<section></section>
+		<section class="contents">
+			<jsp:include page="../${viewName}.jsp" /> 
+		</section>
 		
-		<footer></footer>
+		<footer class="bg-info">
+			<jsp:include page="../include/footer.jsp" />
+		</footer>
 	</div>
 </body>
 </html>
