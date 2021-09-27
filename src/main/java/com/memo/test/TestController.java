@@ -24,7 +24,7 @@ public class TestController {
 	}
 	
 	
-	// 요청 URL: http://localhost/test2
+	// 요청 URL: http://localhost/test3
 	// DB 연동 테스트
 	@RequestMapping("/test2")
 	@ResponseBody
@@ -33,7 +33,7 @@ public class TestController {
 	}
 	@RequestMapping("/test3")
 	public String test3() {
-		return "test/test";
+		return "template/layout";
 	}
 	
 }
