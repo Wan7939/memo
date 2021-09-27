@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-public class Memo {
+public class MemoController {
 	
 	// 요청 URL: http://localhost/user/sgin_in_view
 	@RequestMapping("/user/sgin_in_view")
