@@ -15,10 +15,11 @@ public class MemoController {
 	
 	
 	
-	// 요청 URL: http://localhost/user/sgin_in_view1
+	// 요청 URL: http://localhost/user/sgin_up_view1
 		@RequestMapping("/user/sgin_up_view1")
 		public String join() {
-			return "memo/join";
+			return "user/sign_in";
 		}
 	
+
 }
