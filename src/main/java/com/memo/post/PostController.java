@@ -23,6 +23,13 @@ public class PostController {
 	
 	@Autowired
 	private PostBO postBO;
+	
+	/**
+	 * 글 목록 화면
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	// 요청 URL: http://localhost/post/post_list_view
 	@RequestMapping("/post_list_view")
 	public String postListView(Model model, HttpServletRequest request) {
@@ -39,8 +46,14 @@ public class PostController {
 		// 모델에 담는다.
 		model.addAttribute("postList", postList);
 		model.addAttribute("viewName","post/post_list");
-		return "template/layouts";
+		return "template/layout";
 		
+	}
+	
+	@RequestMapping("/post_create_view")
+	public String postCreatrView(Model model) {
+		model.addAttribute("viewName", "post/post_create");
+		return "template/layout";
 	}
 	
 }

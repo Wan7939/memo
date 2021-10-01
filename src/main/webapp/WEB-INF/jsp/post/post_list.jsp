@@ -34,6 +34,6 @@
 	</table>
 	
 	<div class="d-flex justify-content-end">
-		<a href="/post/post_create_view" class="btn btn-info">글쓰기</a>
+		<a href="/post/post_create_view" class="btn btn-info mb-2">글쓰기</a>
 	</div>
 </div>    
