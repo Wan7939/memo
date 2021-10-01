@@ -5,8 +5,8 @@ import java.util.Date;
 public class Post {
 	
 	private int id;
-	private String subject;
 	private String userId;
+	private String subject;
 	private String content;
 	private String imagePath;
 	private Date createdAt;
@@ -17,17 +17,18 @@ public class Post {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
+	
 	public String getUserId() {
 		return userId;
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 	public String getContent() {
 		return content;

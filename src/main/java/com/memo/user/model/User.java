@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class User {
 	
-	private String id;
+	private int id;
 	private String loginId;
 	private String password;
 	private String name;
@@ -12,10 +12,11 @@ public class User {
 	private Date createdAt;
 	private Date updatedAt;
 	
-	public String getId() {
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getLoginId() {

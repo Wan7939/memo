@@ -11,6 +11,7 @@ import com.memo.post.model.Post;
 @Service
 public class PostBO {
 	
+	
 	@Autowired
 	private PostDAO postDAO;
 	

@@ -1,7 +1,5 @@
 package com.memo.Interceptor;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,13 +17,14 @@ public class PermissionInterceptor implements HandlerInterceptor {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Override
 	public boolean preHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler ) throws IOException {
+			HttpServletResponse response, Object handler) throws Exception {
 		
 		logger.info("[### preHandle ]" + request.getRequestURI());
 		
 		// 세션을 가져온다.
 		HttpSession session = request.getSession();
 		Integer userId = (Integer) session.getAttribute("userId");
+		
 		
 		// URL path를 가져온다.
 		String uri = request.getRequestURI();

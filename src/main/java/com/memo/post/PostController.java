@@ -39,7 +39,8 @@ public class PostController {
 		// 모델에 담는다.
 		model.addAttribute("postList", postList);
 		model.addAttribute("viewName","post/post_list");
-		return "tempalte/layout";
+		return "template/layouts";
+		
 	}
 	
 }
