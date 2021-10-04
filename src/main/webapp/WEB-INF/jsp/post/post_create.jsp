@@ -70,7 +70,7 @@ $(document).ready(function(){
 		// 폼태그를 자바스크립트에서 만든다.
 		let formData = new FormData();
 		formData.append('subject', subject);
-		formData.append('contetn', content);
+		formData.append('content', content);
 		formData.append('file', $('#file')[0].files[0]);
 		
 		// ajax
@@ -84,6 +84,7 @@ $(document).ready(function(){
 			, success: function(data){
 				if (data.result == 'success'){
 					alert("메모가 저장 됐습니다.");
+					location.href ="/post/post_list_view";
 				}
 			}, error: function(e){
 				alert("메모 저장에 실패했습니다." + e);

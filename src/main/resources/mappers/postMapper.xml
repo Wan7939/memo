@@ -3,12 +3,17 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="com.memo.post.dao.PostDAO">
+ 
+ 
+ 
+ 
  	<select id="selectPostList" parameterType="int" resultType="com.memo.post.model.Post">
  		SELECT
  			`id`
 			,`userId`
 			,`subject`
 			,`content`
+			,`imagePath`
 			,`createdAt`
 			,`updatedAt`
 		FROM
@@ -16,4 +21,25 @@
 		WHERE
 			`userId` = #{userId}
  	</select>
+ 	
+ 	<insert id="insertPost" parameterType="map">
+ 		INSERT INTO `post`
+ 		(
+ 			`userId`
+			,`subject`
+			,`content`
+			,`imagePath`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+	 		#{userId}
+	 		,#{subject}
+	 		,#{content}
+	 		,#{imagePath}
+	 		,NOW()
+	 		,NOW()
+ 		)
+ 	</insert>
  </mapper>

@@ -42,7 +42,7 @@ public class PostController {
 		}
 		
 		
-		List<Post> postList = postBO.getPostList(1);
+		List<Post> postList = postBO.getPostList(userId);
 		// 모델에 담는다.
 		model.addAttribute("postList", postList);
 		model.addAttribute("viewName","post/post_list");
