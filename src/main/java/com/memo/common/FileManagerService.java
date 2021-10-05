@@ -43,4 +43,25 @@ public class FileManagerService {
 		// 예) http://localhost/images/s1727060_1633346649040/dodo2.jpg
 		return "/images/" + directoryName + file.getOriginalFilename();
 	}
+	
+	public void deleteFile(String imagePath) throws IOException {
+		// 파라미터 : 		/images/s1727060_1633346649040/dodo2.jpg
+		// 실제경로 :	D:\박경완\6_spring_project\ex\memo_workspace\images
+		// 실제경로 + 파라미터 => images 겹치기 때문에 한쪽(파라미터) /images/를 제거 해줌.
+		Path path = Paths.get(FILE_UPLOAD_PATH + imagePath.replace("/images/", ""));
+		if (Files.exists(path)) {
+			// 파일이 존재하면 삭제한다.
+			Files.delete(path);
+		}
+		
+		// 디렉토리 삭제
+		path = path.getParent();
+		if (Files.exists(path)) {
+			// 디렉토리가 존재하면 삭제한다.
+			Files.delete(path);
+		}
+	}
+	
 }
+
+
