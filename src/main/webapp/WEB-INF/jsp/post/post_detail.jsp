@@ -21,7 +21,7 @@
 		</c:if>
 			
 		<div class="clearfix">
-			<a href="/post/post_list_view" class="btn btn-secondary float-left mb-2">삭제</a>
+			<a href="#" id="deleteBtn" class="btn btn-secondary float-left mb-2" data-post-id="${post.id}">삭제</a>
 			
 			<div class="float-right">
 				<button type="button" id="listBtn" class="btn btn-dark mb-2">목록으로</button>
@@ -95,5 +95,35 @@ $(document).ready(function(){
 			}
 		});
 	});
+	<%-- 삭제 로직 --%>
+	$('#deleteBtn').on('click', function(e){
+		e.preventDefault();  // 화면 상단으로 올라가는것 방지 
+			
+		let postId = $('#deleteBtn').data('post-id');
+		
+		// ajax 통신으로 삭제 요청
+		$.ajax({
+			type: 'delete'
+			, url:'/post/delete'
+			, data: {'postId' : postId}
+			, success: function(data){
+				if(data.result == 'success') {
+					alert("삭제됐습니다.");
+					location.href= "/post/post_list_view";
+				}
+			}, error: function(e) {
+				alert("메모를 삭제하는데 실패했습니다" + e); 
+			}
+		});
+	});
 });
 </script>
+
+
+
+
+
+
+
+
+

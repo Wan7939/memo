@@ -9,7 +9,7 @@
  
  
  
- 	<select id="selectPostList" parameterType="int" resultType="com.memo.post.model.Post">
+ 	<select id="selectPostList" parameterType="map" resultType="com.memo.post.model.Post">
  		SELECT
  			`id`
 			,`userId`
@@ -22,8 +22,34 @@
 			`post`
 		WHERE
 			`userId` = #{userId}
+		<if test="direction == null">
+		ORDER BY `id` DESC
+		</if>
+		<if test="direction == 'prev'">
+			<![CDATA[
+			 AND `id` > #{standardId}
+			  ]]>
+		ORDER BY `id` ASC
+		</if>
+		<if test="direction == 'next'">
+			<![CDATA[
+			 AND `id` < #{standardId}
+			  ]]>
+		ORDER BY `id` DESC
+		</if> 
+		LIMIT ${limit}
  	</select>
  	
+ 	<select id="selectIdByAndSort" parameterType="map" resultType="int">
+		SELECT
+			`id`
+		FROM 
+			`post`
+		WHERE
+			`userId` = #{userId}
+		ORDER BY `id` ${sort}
+		LIMIT 1
+	</select>
  	<insert id="insertPost" parameterType="map">
  		INSERT INTO `post`
  		(
@@ -75,7 +101,17 @@
  			
  		WHERE
  			`id` = #{id}
- 			
- 			
  	</update>
+ 	
+ 	<delete id="deletePost" parameterType="int">
+ 	DELETE
+ 	FROM
+ 		`post`
+ 	WHERE
+ 		`id` = #{id}
+ 	</delete>
+ 	
  </mapper>
+ 
+ 
+ 
